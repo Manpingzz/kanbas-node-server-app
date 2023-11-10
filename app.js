@@ -4,18 +4,22 @@ import Lab5 from "./lab5.js";
 import cors from "cors";
 import "dotenv/config";
 import CourseRoutes from "./courses/routes.js";
-// import ModuleRoutes from "./modules/routes.js"
+import ModuleRoutes from "./modules/routes.js"
+ 
 
 // const express = require('express')
 const app = express();
 app.use(cors());
-// Passing JSON data to the server in an HTTP Body
 app.use(express.json())
+const PORT = 4000
+
+
+
+Hello(app);
+Lab5(app);
 CourseRoutes(app);
+ModuleRoutes(app);
 
-Hello(app)
+app.listen(process.env.PORT || 4000);
 
-Lab5(app)
-// ModuleRoutes(app)
 
-app.listen(4000);
