@@ -12,7 +12,11 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: [
+      process.env.FRONTEND_URL,
+      "http://localhost:3000",
+      "https://thunderous-daffodil-22ffea.netlify.app",
+    ],
   })
 );
 
