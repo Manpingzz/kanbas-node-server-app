@@ -32,6 +32,6 @@
     "express-session": "^1.17.3",
     "helmet": "^7.0.0",
     "mongoose": "^8.0.1",
-    "node": "18.8.0"
+    "node": "^21.1.0"
   }
 }
