@@ -15,7 +15,7 @@ import session from "express-session";
 const CONNECTION_STRING =
   process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
 // mongoose.connect(CONNECTION_STRING);
-
+console.log(CONNECTION_STRING);
 mongoose
   .connect(CONNECTION_STRING, {
     useNewUrlParser: true,
@@ -60,7 +60,6 @@ Lab5(app);
 CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
-UserRoutes(app);
 
 // app.listen(process.env.PORT || 4000);
 app.listen(process.env.PORT || 4000, () => {
