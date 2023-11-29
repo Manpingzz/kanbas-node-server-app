@@ -119,6 +119,11 @@ function UserRoutes(app) {
   app.get("/api/users/username/:username", findByUsername);
   app.get("/api/users/credentials/:username/:password", findUserByCredentials);
   app.put("/api/users/:id", updateUser);
+
+  app.use((err, req, res, next) => {
+    console.error(err.stack); // 打印错误堆栈跟踪
+    res.status(500).send("Something broke!"); // 发送错误响应
+  });
 }
 
 export default UserRoutes;

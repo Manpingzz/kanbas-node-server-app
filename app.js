@@ -14,7 +14,15 @@ import session from "express-session";
 // mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 const CONNECTION_STRING =
   process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
-mongoose.connect(CONNECTION_STRING);
+// mongoose.connect(CONNECTION_STRING);
+
+mongoose
+  .connect(CONNECTION_STRING, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const app = express();
 app.use(
@@ -54,4 +62,7 @@ ModuleRoutes(app);
 AssignmentRoutes(app);
 UserRoutes(app);
 
-app.listen(process.env.PORT || 4000);
+// app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Server running on port ${process.env.PORT || 4000}`);
+});
