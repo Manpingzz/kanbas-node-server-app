@@ -20,7 +20,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("MongoDB successfully connected"))
+  .then(() => console.log(CONNECTION_STRING))
   .catch((err) => console.error("MongoDB connection error:", err));
 
 const app = express();
